@@ -53,6 +53,7 @@ def main() -> None:
     d = pd.read_csv(RAW / "chat" / "FinalCHAT_72909.csv", low_memory=False)
     for c in [*TECHS, "xlpopulation", "xlrealgdp"]:
         d[c] = pd.to_numeric(d[c], errors="coerce")
+    d = d.copy()
     d["gdppc"] = d.xlrealgdp / d.xlpopulation
 
     rows = []

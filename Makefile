@@ -40,12 +40,14 @@ data: $(STATS)
 data/processed/remoteness.csv: scripts/build_remoteness.py $(RAW_STAMPS)
 	$(PYTHON) scripts/build_remoteness.py
 
-$(PROCESSED): scripts/process_countries.py data/processed/remoteness.csv $(RAW_STAMPS)
+$(PROCESSED): scripts/process_countries.py scripts/process_timeseries.py \
+              scripts/process_adoption.py scripts/_names.py \
+              data/processed/remoteness.csv $(RAW_STAMPS)
 	$(PYTHON) scripts/process_countries.py
 	$(PYTHON) scripts/process_timeseries.py
 	$(PYTHON) scripts/process_adoption.py
 
-$(STATS): scripts/export_stats.py $(PROCESSED)
+$(STATS): scripts/export_stats.py $(PROCESSED) data/manual/narrative_facts.csv
 	$(PYTHON) scripts/export_stats.py
 
 process: $(PROCESSED)
@@ -76,4 +78,4 @@ clean:
 	rm -rf paper/build $(PDF)
 
 distclean: clean
-	rm -rf data/raw/* data/raw/.*.stamp data/processed/* generated/* figures/*
+	rm -rf data/raw/*/ data/raw/.*.stamp data/processed/*.csv generated/*.tex figures/*.pdf
