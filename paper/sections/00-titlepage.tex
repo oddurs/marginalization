@@ -1,0 +1,41 @@
+% ------------------------------------------------------------------ title page
+\begin{titlepage}
+\thispagestyle{empty}
+\newgeometry{top=1.1in,bottom=0.9in,left=1.1in,right=1.1in}
+\begin{tikzpicture}[remember picture,overlay]
+  \fill[teal] (current page.north west) rectangle ([yshift=-0.42in]current page.north east);
+  \fill[ember] ([yshift=-0.42in]current page.north west) rectangle ([yshift=-0.47in]current page.north east);
+\end{tikzpicture}
+
+{\sffamily\footnotesize\color{slate}\MakeUppercase{Working Paper}\enspace\textbar\enspace
+ \liningfigures\the\year\par}
+\vspace{1.6in}
+
+{\fontsize{46}{48}\selectfont\color{teal}\papertitle\par}
+\vspace{10pt}
+{\fontsize{20}{25}\selectfont\itshape\color{ink}\papersubtitle\par}
+\vspace{18pt}
+{\color{ember}\rule{1.4in}{2pt}\par}
+\vspace{18pt}
+{\large\scshape\color{ink}\paperauthor\par}
+
+\vspace{0.8in}
+\begin{minipage}{0.82\linewidth}
+\begin{pullquote}
+The equalisers of our age are also the multipliers of distance.
+\end{pullquote}
+\end{minipage}
+
+\vfill
+\begin{abstractbox}
+\input{sections/00-abstract}
+\end{abstractbox}
+
+\vspace{10pt}
+{\sffamily\scriptsize\color{slate}
+Every number in this paper is produced by a script from a cited public
+dataset; see the Data Appendix and the repository's \texttt{data/SOURCES.md}.
+Keywords: remoteness; small island developing states; connectivity;
+economic geography; technology diffusion; brain drain; climate vulnerability.\par}
+\restoregeometry
+\end{titlepage}

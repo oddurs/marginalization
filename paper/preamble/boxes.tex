@@ -1,0 +1,39 @@
+% ------------------------------------------------------------------ components
+\usepackage[most]{tcolorbox}
+
+% Abstract: mist panel with a teal top rule.
+\newtcolorbox{abstractbox}{enhanced,breakable,colback=mist,colframe=mist,
+  boxrule=0pt,arc=0pt,left=14pt,right=14pt,top=10pt,bottom=12pt,
+  borderline north={2pt}{0pt}{teal},
+  fontupper=\small\linespread{1.15}\selectfont,
+  title={\sffamily\bfseries\footnotesize\color{teal}\MakeUppercase{Abstract}},
+  coltitle=teal,colbacktitle=mist,attach title to upper={\par\smallskip}}
+
+% Pull quote: large italic, teal left rule.
+\newtcolorbox{pullquote}{enhanced,breakable=false,colback=white,colframe=white,
+  boxrule=0pt,arc=0pt,left=14pt,right=10pt,top=4pt,bottom=4pt,
+  borderline west={3pt}{0pt}{teal},before skip=14pt,after skip=14pt,
+  fontupper=\Large\itshape\color{teal}\linespread{1.05}\selectfont}
+
+% Key idea: ember accent.
+\newtcolorbox{keyidea}[1][Key Idea]{enhanced,breakable,colback=ember!6,
+  colframe=ember!6,boxrule=0pt,arc=1pt,left=12pt,right=12pt,top=8pt,bottom=8pt,
+  borderline west={3pt}{0pt}{ember},before skip=12pt,after skip=12pt,
+  fontupper=\small,
+  title={\sffamily\bfseries\footnotesize\MakeUppercase{#1}},coltitle=ember,
+  attach title to upper={\par\smallskip}}
+
+% Counterpoint: sand panel for the strongest objections to the argument.
+\newtcolorbox{counterpoint}[1][Counterpoint]{enhanced,breakable,colback=sand!22,
+  colframe=sand!22,boxrule=0pt,arc=1pt,left=12pt,right=12pt,top=8pt,bottom=8pt,
+  borderline west={3pt}{0pt}{sandDeep},before skip=12pt,after skip=12pt,
+  fontupper=\small,
+  title={\sffamily\bfseries\footnotesize\MakeUppercase{#1}},
+  coltitle=sandDeep!80!black,attach title to upper={\par\smallskip}}
+
+% At-a-glance claim tiles.
+\newtcolorbox{claimtile}[1]{enhanced,colback=mist,colframe=mist,boxrule=0pt,
+  arc=0pt,left=10pt,right=10pt,top=8pt,bottom=8pt,
+  borderline north={2pt}{0pt}{teal},equal height group=claims,
+  fontupper=\small\raggedright,
+  title={\sffamily\bfseries\color{ember}#1},attach title to upper={\par\smallskip}}

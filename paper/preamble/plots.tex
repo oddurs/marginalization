@@ -1,0 +1,49 @@
+% ------------------------------------------------------------------ plots
+\usepackage{pgfplots}
+\pgfplotsset{compat=1.18}
+\usepgfplotslibrary{groupplots,fillbetween,colorbrewer}
+\usetikzlibrary{arrows.meta,positioning,calc,decorations.markings,shapes.geometric,shadows}
+\pgfplotsset{table/col sep=comma}
+
+% Data directory (relative to paper/).
+\newcommand{\datadir}{../data/processed}
+
+% House style shared by every chart: sans labels, light grid, no top/right box.
+\pgfplotsset{
+  edge/.style={
+    width=\linewidth, height=0.58\linewidth,
+    axis lines*=left,
+    axis line style={slate,line width=0.5pt},
+    tick style={slate,line width=0.4pt},
+    major tick length=3pt,
+    tick label style={font=\sffamily\scriptsize,color=slate},
+    label style={font=\sffamily\footnotesize,color=ink},
+    title style={font=\sffamily\small\bfseries,color=ink},
+    legend style={font=\sffamily\scriptsize,draw=none,fill=none,
+                  text=ink,cells={anchor=west}},
+    legend cell align=left,
+    grid=major, grid style={haze,line width=0.3pt,dash pattern=on 1pt off 1.5pt},
+    every axis plot/.append style={line join=round},
+    scaled ticks=false,
+    /pgf/number format/1000 sep={,},
+    clip marker paths=true,
+  },
+  % series styles: distinguishable by lightness, marker and dash in greyscale
+  lineTeal/.style={teal,line width=1.6pt},
+  lineEmber/.style={ember,line width=1.6pt,dashed,dash pattern=on 4pt off 2pt},
+  lineSlate/.style={slate,line width=1.1pt,dash pattern=on 1pt off 1.5pt},
+  lineSand/.style={sandDeep,line width=1.3pt},
+  bandTeal/.style={fill=teal,fill opacity=0.12,draw=none},
+  bandEmber/.style={fill=ember,fill opacity=0.12,draw=none},
+  % scatter layers: background (all countries), highlight (SIDS), labels
+  dotsBase/.style={only marks,mark=*,mark size=1.3pt,
+    mark options={fill=haze,draw=white,line width=0.2pt}},
+  dotsSIDS/.style={only marks,mark=*,mark size=1.9pt,
+    mark options={fill=ember,draw=white,line width=0.3pt}},
+  dotsLLDC/.style={only marks,mark=square*,mark size=1.6pt,
+    mark options={fill=teal,draw=white,line width=0.3pt}},
+  dotsEscape/.style={only marks,mark=diamond*,mark size=2.6pt,
+    mark options={fill=sand,draw=ink,line width=0.4pt}},
+  pointlabel/.style={font=\sffamily\tiny,color=ink,inner sep=1pt},
+  fitline/.style={ink,line width=0.8pt,dash pattern=on 3pt off 2pt,opacity=0.7},
+}

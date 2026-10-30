@@ -1,0 +1,56 @@
+% The Widening Edge: Remoteness, Acceleration and the Connectivity Tax
+% Build with `make pdf` from the repository root (LuaLaTeX + biber).
+\documentclass[11pt,letterpaper,oneside]{article}
+
+\input{preamble/colours}
+\input{preamble/style}
+\input{preamble/boxes}
+\input{preamble/plots}
+
+\addbibresource{references.bib}
+
+% Generated numbers: every figure quoted in the prose comes from here.
+\InputIfFileExists{../generated/stats.tex}{}{%
+  \PackageWarning{widening-edge}{generated/stats.tex missing: run `make data`}}
+
+\newcommand{\papertitle}{The Widening Edge}
+\newcommand{\papersubtitle}{Remoteness, Acceleration and the Connectivity Tax}
+\newcommand{\paperauthor}{Oddur}
+
+\hypersetup{
+  pdftitle={\papertitle: \papersubtitle},
+  pdfauthor={\paperauthor},
+  pdfsubject={Economic geography of small and remote states},
+  pdfkeywords={remoteness, small island developing states, connectivity,
+    economic geography, technology diffusion, brain drain, climate vulnerability},
+  pdfcreator={LuaLaTeX},
+}
+
+\begin{document}
+
+\input{sections/00-titlepage}
+\input{sections/00-ataglance}
+
+\input{sections/01-introduction}
+\input{sections/02-defining-the-edge}
+\input{sections/03-recurring-tax}
+\input{sections/04-trade}
+\input{sections/05-technology}
+\input{sections/06-health}
+\input{sections/07-people}
+\input{sections/08-climate}
+\input{sections/09-acceleration}
+\input{sections/10-who-escapes}
+\input{sections/11-counterarguments}
+\input{sections/12-paying-down}
+\input{sections/13-conclusion}
+
+\appendix
+\input{sections/A-data-appendix}
+
+\clearpage
+\phantomsection
+\addcontentsline{toc}{section}{References}
+\printbibliography[heading=bibnumbered,title={References}]
+
+\end{document}

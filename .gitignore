@@ -1,0 +1,12 @@
+# raw downloads are recreated by scripts/fetch_*.py
+data/raw/*
+!data/raw/.gitkeep
+!data/raw/MANIFEST.json
+
+# LaTeX build products
+paper/build/
+/widening-edge.pdf
+
+__pycache__/
+*.pyc
+.venv/
