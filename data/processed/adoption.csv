@@ -1,14 +1,14 @@
-tech,label,era,frontier,lag,adopters,gap_log10,gap_ratio,ref_year
-railtkm,Rail (freight),industrial,1862,66.0,98,1.137,13.722,1993
-railpkm,Rail (passengers),industrial,1863,61.5,93,0.818,6.572,1993
-telephone,Telephone,industrial,1888,63.0,155,1.138,13.754,2000
-elecprod,Electricity,industrial,1901,46.5,155,0.839,6.905,2000
-vehicle_car,Cars,industrial,1906,31.5,153,0.837,6.866,2000
-vehicle_com,Trucks,industrial,1913,17.0,123,0.872,7.447,1997
-aviationpkm,Aviation (passengers),mid,1926,30.0,109,1.511,32.45,1993
-radio,Radio,mid,1926,30.0,153,0.722,5.277,1999
-aviationtkm,Aviation (freight),mid,1942,15.0,103,1.457,28.672,1991
-tv,Television,mid,1953,12.0,155,0.775,5.96,2000
-cabletv,Cable TV,digital,1982,13.0,98,1.303,20.075,2000
-cellphone,Mobile phones,digital,1982,11.0,150,1.578,37.837,2000
-computer,Computers,digital,1985,8.0,134,1.59,38.904,2000
+tech,label,era,frontier,lag,adopters,gap_log10,gap_ratio,ref_year,lab_side
+railtkm,Rail (freight),industrial,1862,66.0,98,1.137,13.722,1993,w
+railpkm,Rail (passengers),industrial,1863,61.5,93,0.818,6.572,1993,w
+telephone,Telephone,industrial,1888,63.0,155,1.138,13.754,2000,e
+elecprod,Electricity,industrial,1901,46.5,155,0.839,6.905,2000,w
+vehicle_car,Cars,industrial,1906,31.5,153,0.837,6.866,2000,w
+vehicle_com,Trucks,industrial,1913,17.0,123,0.872,7.447,1997,w
+aviationpkm,Aviation (passengers),mid,1926,30.0,109,1.511,32.45,1993,w
+radio,Radio,mid,1926,30.0,153,0.722,5.277,1999,w
+aviationtkm,Aviation (freight),mid,1942,15.0,103,1.457,28.672,1991,w
+tv,Television,mid,1953,12.0,155,0.775,5.96,2000,w
+cabletv,Cable TV,digital,1982,13.0,98,1.303,20.075,2000,w
+cellphone,Mobile phones,digital,1982,11.0,150,1.578,37.837,2000,w
+computer,Computers,digital,1985,8.0,134,1.59,38.904,2000,e

@@ -2,7 +2,7 @@
 \centering
 \begin{tikzpicture}
 \begin{axis}[edge, height=0.58\linewidth,
-    xmin=0, xmax=72, xlabel={Median adoption lag behind the first five adopters, years},
+    xmin=0, xmax=85, xlabel={Median adoption lag behind the first five adopters, years},
     ymode=log, ymin=4, ymax=60, ytick={5,10,20,50}, yticklabels={5$\times$,10$\times$,20$\times$,50$\times$},
     ylabel={Intensity gap, richest quarter vs poorest half},
     legend pos=north east]
@@ -15,7 +15,10 @@
   \addplot[only marks, mark=diamond*, mark size=3pt, mark options={fill=ember,draw=white}, only if={era}{digital}]
     table[x=lag,y=gap_ratio] {\datadir/adoption.csv};
   \addlegendentry{Digital (after 1975)}
-  \addplot[labelled=label] table[x=lag,y=gap_ratio] {\datadir/adoption.csv};
+  \addplot[labelled=label, only if={lab_side}{w}] table[x=lag,y=gap_ratio] {\datadir/adoption.csv};
+  \addplot[labelled=label, only if={lab_side}{e},
+    every node near coord/.append style={anchor=east,xshift=-1.5pt}]
+    table[x=lag,y=gap_ratio] {\datadir/adoption.csv};
 \end{axis}
 \end{tikzpicture}
 \caption{\takeaway{Technologies arrive faster but are used less

@@ -86,6 +86,8 @@ def main() -> None:
                      "gap_log10": gap, "gap_ratio": 10 ** gap, "ref_year": ref})
 
     out = pd.DataFrame(rows).sort_values("frontier")
+    # Label placement on the chart: "e" puts the label left of the point.
+    out["lab_side"] = out.tech.map(lambda t: "e" if t in ("computer", "telephone") else "w")
     out.round(3).to_csv(PROCESSED / "adoption.csv", index=False)
     log(f"{len(out)} technologies")
 
