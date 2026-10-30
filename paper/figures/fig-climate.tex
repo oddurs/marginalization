@@ -1,0 +1,27 @@
+\begin{figure}[t]
+\centering
+\begin{tikzpicture}
+\begin{axis}[edge, height=0.6\linewidth,
+    xmode=log, xmin=0.03, xmax=60,
+    xtick={0.1,0.3,1,3,10,30}, xticklabels={0.1,0.3,1,3,10,30},
+    xlabel={CO$_2$ emissions per person, tonnes (log scale)},
+    ymode=log, ymin=0.005, ymax=100,
+    ytick={0.01,0.1,1,10,100}, yticklabels={0.01,0.1,1,10,100},
+    ylabel={Disaster displacements per 1,000 people, yearly (log)},
+    legend pos=south east]
+  \addplot[dotsBase, only if={sids}{0}] table[x=co2pc,y=displaced_per_k] {\datadir/plot_countries.csv};
+  \addlegendentry{Other economies}
+  \addplot[dotsSIDS, only if={sids}{1}] table[x=co2pc,y=displaced_per_k] {\datadir/plot_countries.csv};
+  \addlegendentry{Small island states}
+  \addplot[labelled=lab_climate] table[x=co2pc,y=displaced_per_k] {\datadir/plot_countries.csv};
+\end{axis}
+\end{tikzpicture}
+\caption{\takeaway{Exposure without influence.} Small island states account
+  for \sidsCOshare\% of the world's CO$_2$ emissions (and \sidsPopShare\% of its
+  people) yet the median island state sees \dispSIDSRatio{} times as many
+  disaster displacements per head as the median other country. \nDispTopTenSIDS{} of the ten most-displaced
+  economies are islands. Emissions \windowStart--\windowEnd{} average; displacements
+  2008--2023 average (years without a report counted as zero; countries without any report omitted).
+  \source{World Bank WDI (EDGAR emissions; IDMC displacement data).}}
+\label{fig:climate}
+\end{figure}

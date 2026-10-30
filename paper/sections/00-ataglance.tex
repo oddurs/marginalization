@@ -1,1 +1,68 @@
-% 00-ataglance
+% ------------------------------------------------------------------ at a glance
+\clearpage
+\thispagestyle{plain}
+\section*{At a Glance}
+\addcontentsline{toc}{section}{At a Glance}
+
+{\large\itshape\color{teal} Remoteness is no longer a fixed cost paid once.
+It is a recurring tax, and the taxes compound.\par}
+\vspace{14pt}
+
+\noindent
+\begin{minipage}[t]{0.32\linewidth}
+\begin{claimtile}{1\enspace Far, not small}
+Distance carries the income penalty. Conditional on governance, doubling
+economic remoteness goes with \regDoubleRemotePctAbs\% lower income per head;
+population barely matters (\cref{sec:edge}).
+\end{claimtile}
+\end{minipage}\hfill
+\begin{minipage}[t]{0.32\linewidth}
+\begin{claimtile}{2\enspace Arrival converges, intensity doesn't}
+New technologies reach the edge within about a decade, not \lagOldMedian{} years.
+But broadband, bandwidth and redundancy still lag: \nSIDSOneCable{} island
+states hang on one cable or none (\cref{sec:tech,sec:accel}).
+\end{claimtile}
+\end{minipage}\hfill
+\begin{minipage}[t]{0.32\linewidth}
+\begin{claimtile}{3\enspace The edge is not destiny}
+Iceland, the Faroes, Singapore and Mauritius escaped through rents,
+institutions and becoming hubs. But even escapees export talent: Mauritius
+lost \emigMauritius\% of its graduates (\cref{sec:escape}).
+\end{claimtile}
+\end{minipage}
+
+\vspace{18pt}
+\noindent{\sffamily\bfseries\small\color{teal}Headline chart\enspace}{\sffamily\small\color{slate}Access versus intensity, medians per 100 people}
+\par\smallskip
+\begin{center}
+\begin{tikzpicture}
+\begin{axis}[edge, width=0.92\linewidth, height=0.42\linewidth,
+    xmin=1998, xmax=2023, xtick={2000,2005,2010,2015,2020},
+    x tick label style={/pgf/number format/1000 sep={}},
+    ymin=0, ymax=100,
+    legend style={at={(0.02,0.98)},anchor=north west}, legend columns=2]
+  \addplot[lineSlate] table[x=year,y=net_hic] {\datadir/internet_groups.csv};
+  \addlegendentry{Online, rich}
+  \addplot[lineTeal] table[x=year,y=net_sids] {\datadir/internet_groups.csv};
+  \addlegendentry{Online, islands}
+  \addplot[lineSlate, dashed, line width=1.1pt] table[x=year,y=bb_hic] {\datadir/internet_groups.csv};
+  \addlegendentry{Broadband, rich}
+  \addplot[lineEmber] table[x=year,y=bb_sids] {\datadir/internet_groups.csv};
+  \addlegendentry{Broadband, islands}
+\end{axis}
+\end{tikzpicture}
+\end{center}
+{\sffamily\footnotesize\color{slate}
+Small island states have nearly caught up on being online
+(\netSidsLast\% vs \netHicLast\% in \windowEnd) but not on fixed broadband
+(\bbSidsLast{} vs \bbHicLast{} lines per 100). Source: World Bank WDI; see
+\cref{fig:internet}.\par}
+
+\vspace{14pt}
+\begin{counterpoint}[What the data do not show]
+Remote places have not, in general, become poorer: most gained in absolute
+terms. Several gaps have \emph{narrowed} (internet access; shipping relative
+to the old hubs). The claims here are about relative position, volatility and
+control, and the paper flags where the evidence cuts against them.
+\end{counterpoint}
+\clearpage

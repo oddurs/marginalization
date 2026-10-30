@@ -1,0 +1,27 @@
+\begin{figure}[t]
+\centering
+\begin{tikzpicture}
+\begin{axis}[edge, height=0.6\linewidth,
+    xmode=log, xlabel={Population, millions (log scale)},
+    xmin=0.005, xmax=2000,
+    xtick={0.01,0.1,1,10,100,1000}, xticklabels={0.01,0.1,1,10,100,1000},
+    ymode=log, ymin=0.8, ymax=80,
+    ytick={1,2,3,6,11,21,51}, yticklabels={0,1,2,5,10,20,50},
+    ylabel={International submarine cables in service},
+    legend pos=north west]
+  \addplot[dotsBase, only if={other}{1}] table[x=pop_m,y=cables_p1] {\datadir/plot_countries.csv};
+  \addlegendentry{Other coastal economies}
+  \addplot[dotsSIDS, only if={sids}{1}] table[x=pop_m,y=cables_p1] {\datadir/plot_countries.csv};
+  \addlegendentry{Small island states}
+  \addplot[labelled=lab_cables] table[x=pop_m,y=cables_p1] {\datadir/plot_countries.csv};
+\end{axis}
+\end{tikzpicture}
+\caption{\takeaway{Redundancy scales with size, not distance.} Cable counts
+  rise with population (correlation of logs \corrCablesPop) but barely vary with
+  remoteness (\corrCablesRemote). \nSIDSOneCable{} of \nSIDScables{} small
+  island states, including \nPacificOneCable{} in the Pacific, have one
+  international cable or none: a single cut takes them offline.
+  \source{TeleGeography Submarine Cable Map (cables in service by 2025, excluding
+  domestic systems); World Bank WDI.}}
+\label{fig:cables}
+\end{figure}

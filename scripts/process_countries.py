@@ -22,7 +22,7 @@ LABELS = {
     "WSM": "Samoa", "VUT": "Vanuatu", "SLB": "Solomon Is.", "MHL": "Marshall Is.",
     "FSM": "Micronesia", "PLW": "Palau", "NRU": "Nauru",
     "MDV": "Maldives", "MUS": "Mauritius", "SYC": "Seychelles", "CPV": "Cabo Verde",
-    "COM": "Comoros", "STP": "S\\~ao Tom\\'e", "JAM": "Jamaica", "HTI": "Haiti",
+    "COM": "Comoros", "STP": "Sao Tome", "JAM": "Jamaica", "HTI": "Haiti",
     "BRB": "Barbados", "GUY": "Guyana", "DMA": "Dominica", "TTO": "Trinidad",
     "ISL": "Iceland", "FRO": "Faroes", "SGP": "Singapore", "MLT": "Malta",
     "NZL": "New Zealand", "AUS": "Australia", "USA": "United States",
@@ -33,6 +33,18 @@ LABELS = {
     "TJK": "Tajikistan", "KGZ": "Kyrgyzstan",
 }
 PACIFIC_SUBREGIONS = {"Melanesia", "Micronesia", "Polynesia"}
+
+# Which countries get a text label on which chart (keeps labels legible).
+FIG_LABELS = {
+    "cables": ["TON", "TUV", "KIR", "FJI", "SGP", "ISL", "MUS", "NZL", "AUS", "USA",
+               "MDV", "PLW", "NRU", "FRO", "GBR", "CHL", "SLB", "VUT"],
+    "doc": ["TON", "KIR", "FJI", "SLB", "VUT", "PNG", "ISL", "SGP", "MUS", "NZL",
+            "AUS", "MNG", "QAT", "CHE", "HTI", "BRB", "GUY", "TCD"],
+    "emig": ["TON", "GUY", "FJI", "WSM", "MUS", "JAM", "HTI", "BRB", "ISL", "SGP",
+             "NZL", "MLT", "TUV", "KIR", "PNG", "LUX", "TTO"],
+    "climate": ["VUT", "TUV", "DMA", "FJI", "TON", "KIR", "MHL", "QAT", "USA", "AUS",
+                "CHN", "IND", "ISL", "SGP", "MUS", "HTI", "PHL", "LUX", "CUB"],
+}
 
 
 def wdi_window(wdi: pd.DataFrame, code: str, years=WINDOW) -> pd.Series:
@@ -180,6 +192,20 @@ def main() -> None:
     df.index.name = "iso3"
     df = df.round(4).sort_index()
     df.to_csv(PROCESSED / "countries.csv")
+
+    # pgfplots cannot parse quoted fields, so the plotting table carries only
+    # numbers, group flags and comma-free labels; blank numbers become nan in
+    # LaTeX, and an unlabelled point gets an empty group {} as its label.
+    plot = df[["sids", "lldc", "pacific", "escape", "pop_m", "log_pop", "remote_kkm",
+               "gdppc_ppp", "lsci", "cables_intl", "doctors", "remittances_gdp",
+               "co2pc", "displaced_per_k", "low_elev", "emig_high_2010",
+               "diabetes_2022"]].copy()
+    plot["cables_p1"] = plot.cables_intl + 1  # for a log axis that shows zero
+    for fig, isos in FIG_LABELS.items():
+        plot[f"lab_{fig}"] = [LABELS.get(i, "{}") if i in isos else "{}" for i in plot.index]
+    plot["other"] = ((plot.sids == 0) & (plot.lldc == 0)).astype(int)
+    assert not plot.filter(like="lab_").apply(lambda c: c.str.contains(",")).any().any()
+    plot.to_csv(PROCESSED / "plot_countries.csv")
     log(f"{len(df)} economies, {df.sids.sum()} SIDS, {df.lldc.sum()} LLDC; "
         f"LSCI year {last}")
 

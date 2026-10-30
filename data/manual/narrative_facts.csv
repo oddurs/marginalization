@@ -1,0 +1,4 @@
+key,value,unit,description,source,url,accessed
+tongaOutageDays,38,days,"Days Tonga's international cable was offline after the 15 January 2022 eruption (restored 22 February 2022)",SBS News 2022-02-22,https://www.sbs.com.au/news/article/tonga-back-online-after-38-days-of-no-internet-due-to-volcanic-eruption/abx9r4rre,2026-10-30
+tongaOutageWeeks,five,weeks,"Duration of the outage as reported in words",Euronews 2022-02-23,https://www.euronews.com/2022/02/23/tonga-is-finally-back-online-here-s-why-it-took-5-weeks-to-fix-its-volcano-damaged-interne,2026-10-30
+tongaCableCutOffshoreKm,37,km,"Distance offshore from Nuku'alofa at which the international cable was cut",Euronews 2022-02-23,https://www.euronews.com/2022/02/23/tonga-is-finally-back-online-here-s-why-it-took-5-weeks-to-fix-its-volcano-damaged-interne,2026-10-30

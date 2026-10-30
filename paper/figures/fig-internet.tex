@@ -1,0 +1,26 @@
+\begin{figure}[t]
+\centering
+\begin{tikzpicture}
+\begin{axis}[edge, height=0.52\linewidth,
+    xmin=1998, xmax=2023, xtick={2000,2005,2010,2015,2020},
+    x tick label style={/pgf/number format/1000 sep={}},
+    ymin=0, ymax=100, ylabel={Per 100 people},
+    legend style={at={(0.02,0.98)},anchor=north west}]
+  \addplot[lineSlate, mark=none] table[x=year,y=net_hic] {\datadir/internet_groups.csv};
+  \addlegendentry{Internet users, high income}
+  \addplot[lineTeal] table[x=year,y=net_sids] {\datadir/internet_groups.csv};
+  \addlegendentry{Internet users, small island states}
+  \addplot[lineSlate, dashed, dash pattern=on 4pt off 2pt, line width=1.1pt] table[x=year,y=bb_hic] {\datadir/internet_groups.csv};
+  \addlegendentry{Fixed broadband, high income}
+  \addplot[lineEmber] table[x=year,y=bb_sids] {\datadir/internet_groups.csv};
+  \addlegendentry{Fixed broadband, small island states}
+\end{axis}
+\end{tikzpicture}
+\caption{\takeaway{Access has converged; intensity has not.} In 2000 the
+  median rich country had \netRatioFirst{} times the island share of people
+  online; by \windowEnd{} it was \netHicLast\% against \netSidsLast\%. Fixed broadband, a proxy for heavy, reliable use, still trails
+  by \bbGapLast{} lines per 100 people.
+  Medians across countries reporting each year.
+  \source{World Bank WDI (ITU data); UN M49 SIDS list.}}
+\label{fig:internet}
+\end{figure}

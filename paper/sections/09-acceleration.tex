@@ -1,1 +1,46 @@
-% 09-acceleration
+\section{Acceleration: Why a Small Lag Grows}
+\label{sec:accel}
+
+If technologies now spread faster, why worry about lags? Because what
+matters for income is not whether a technology has \emph{arrived} but how
+intensively it is \emph{used}. \textcite{comin2010} showed that adoption lags
+have shortened dramatically across successive technologies;
+\textcite{comin2018} found that while adoption lags converged, the intensity of use in poor
+countries relative to rich ones diverged---and that the productivity trends
+implied by these two patterns resemble the actual divergence of world incomes
+over the past two centuries.
+
+\input{figures/fig-adoption}
+
+\Cref{fig:adoption} reproduces that pattern descriptively with the CHAT
+dataset \parencite{comin2009chat}. For each of \nTechs{} technologies, the
+horizontal axis shows how long the typical country took to adopt it after the
+first five adopters; the vertical axis shows how many times more intensively
+the richest quarter of countries used it, per person, than the poorest half.
+Lags shrank from \lagRail{} years for passenger railways and
+\lagTelephone{} for the telephone to \lagCell{} for mobile phones and
+\lagComputer{} for computers. But intensity gaps grew: \gapRail-fold for
+railways and \gapTV-fold for television, \gapCell-fold for mobile phones and
+\gapComputer-fold for computers in 2000. Across technologies, shorter lags
+go with \emph{larger} gaps (correlation \corrLagGap).
+
+An honest caveat: in 2000 mobile phones and computers were young, and gaps
+during early diffusion are naturally large; some of the difference will close,
+as it has for internet access (\cref{fig:internet}). The structural point
+survives the caveat. When the frontier moves fast, a country that adopts
+late and uses lightly is chasing a moving target, and each new layer of
+technology builds on the last. Being a few years and a few multiples behind
+in broadband becomes being further behind in cloud services, in data-driven
+logistics, in AI.
+
+\paragraph{Thin layers.} Three further mechanisms turn small lags into
+lasting gaps in small, remote places.
+\emph{Language}: digital services, voice assistants and now AI models are
+built first, and best, for languages with many speakers and much text; a
+language with a hundred thousand speakers is served last, if at all.
+\emph{Food systems}: once local agriculture and supply chains have been
+displaced by imports, the knowledge and infrastructure to rebuild them
+decays. \emph{Thin institutions}: a ministry with a handful of staff must
+cover the same range of international standards, negotiations and
+regulations as one with thousands. Each new technology---data protection,
+digital trade rules, AI governance---adds a portfolio but not a person.

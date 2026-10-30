@@ -1,1 +1,62 @@
-% 05-technology
+\section{Technology: Connected but Dependent}
+\label{sec:tech}
+
+Almost all international data travel through submarine fibre-optic cables.
+For a large coastal country the cable network is a mesh: dozens of
+independent systems landing at many points, so a single fault is an
+inconvenience. For a small island it is often a single thread. Tonga's
+\tongaOutageDays{} days offline in 2022 were not caused by poor management
+but by the arithmetic of redundancy.
+
+\input{figures/fig-cables}
+
+\Cref{fig:cables} counts international cables in service in each coastal
+economy, using TeleGeography's public map data \parencite{telegeography2026}.
+The striking pattern is that redundancy tracks \emph{size}: cable counts rise
+steeply with population (correlation \corrCablesPop) and are only weakly
+related to remoteness (\corrCablesRemote). Singapore has \cablesSingapore{}
+international cables; the median island state \cablesSIDSMedian{}; the median
+other coastal economy \cablesOtherMedian. \nSIDSOneCable{} of the
+\nSIDScables{} small island states have at most one international cable. Cables
+are lumpy, fixed-cost investments; small markets struggle to justify the
+second one, which is precisely the one that matters when the first is cut.
+
+Tonga now illustrates the remedy as well as the problem. In May 2026 a branch
+of the trans-Pacific Hawaiki cable began service to Vava\okina u, financed with
+Australian and New Zealand support, giving the kingdom a second international
+link \parencite{aiffp2026tonga}.\footnote{TeleGeography records the branch
+under the Hawaiki trunk's \enquote{ready for service} year, 2018; the Tongan
+branch itself entered service in 2026. Tonga's count of \cablesTonga{} in
+\cref{fig:cables} therefore reflects the 2026 position.}
+
+\paragraph{Connected but dependent.} Connectivity has also changed what
+dependence means. A small country's payments, government records, health
+systems and schools increasingly run on services hosted abroad, priced in
+foreign currency and governed by foreign law. That is mostly a gain---a tiny
+administration can rent world-class software---but it means the recurring tax
+now includes licence fees, bandwidth charges and the risk that a cut, a
+sanction or a platform's change of terms switches services off.
+
+\begin{counterpoint}[Leapfrogging]
+Satellite constellations and mobile money cut directly against the thesis.
+Low-Earth-orbit satellite internet reaches places where cables never will,
+and mobile money has transformed financial access where banks were scarce:
+in Kenya it lifted households' ability to share risk
+\parencite{jack2014} and reduced poverty \parencite{suri2016}. Fast internet
+measurably raised employment where it arrived in Africa
+\parencite{hjort2019}.
+
+The test is whether technology helps the edge \emph{faster than the centre}.
+On access, it clearly does (\cref{fig:internet}). In 2000 the median
+high-income country had \netRatioFirst{} times the share of people online of the
+median island state; by \windowEnd{} the ratio was \netRatioLast. The
+absolute gap peaked at \netGapPeak{} percentage points in \netGapPeakYear{} and
+has since halved to \netGapLast. On \emph{intensity}, convergence is far
+slower: fixed broadband lines per 100 people still differ by \bbGapLast{}
+(\bbSidsLast{} against \bbHicLast), and in the Pacific the median is
+\bbPacificLast. Leapfrogging is real for arrival; the gap persists in depth
+of use, price and resilience. Satellite links also add a new dependency, on a
+handful of foreign operators.
+\end{counterpoint}
+
+\input{figures/fig-internet}

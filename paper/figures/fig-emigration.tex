@@ -1,0 +1,26 @@
+\begin{figure}[t]
+\centering
+\begin{tikzpicture}
+\begin{axis}[edge, height=0.6\linewidth,
+    xmode=log, xlabel={Population, millions (log scale)},
+    xmin=0.005, xmax=2000,
+    xtick={0.01,0.1,1,10,100,1000}, xticklabels={0.01,0.1,1,10,100,1000},
+    ymin=0, ymax=100,
+    ylabel={Tertiary-educated emigration rate, 2010 (\%)},
+    legend pos=north east]
+  \addplot[dotsBase, only if={sids}{0}] table[x=pop_m,y=emig_high_2010] {\datadir/plot_countries.csv};
+  \addlegendentry{Other economies}
+  \addplot[dotsSIDS, only if={sids}{1}] table[x=pop_m,y=emig_high_2010] {\datadir/plot_countries.csv};
+  \addlegendentry{Small island states}
+  \addplot[labelled=lab_emig] table[x=pop_m,y=emig_high_2010] {\datadir/plot_countries.csv};
+\end{axis}
+\end{tikzpicture}
+\caption{\takeaway{Small places lose their graduates.} Share of each country's
+  university-educated adults living in 20 OECD destinations. The median small island
+  state lost \emigSIDSMedian\%; countries with more than 20 million people lost
+  \emigLargeMedian\%. Of the \nEmigOverHalf{} countries losing more than half their
+  graduates, \nEmigOverHalfSIDS{} are small island states. Population
+  \windowStart--\windowEnd; emigration 2010, the latest year available.
+  \source{IAB brain-drain data \parencite{brucker2013}; World Bank WDI.}}
+\label{fig:emigration}
+\end{figure}

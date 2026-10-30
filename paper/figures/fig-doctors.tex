@@ -1,0 +1,24 @@
+\begin{figure}[t]
+\centering
+\begin{tikzpicture}
+\begin{axis}[edge, height=0.58\linewidth,
+    xlabel={Economic remoteness, thousand km}, xmin=5.5, xmax=14.5,
+    ymode=log, ymin=0.02, ymax=10, ytick={0.02,0.05,0.1,0.2,0.5,1,2,5,10},
+    yticklabels={0.02,0.05,0.1,0.2,0.5,1,2,5,10},
+    ylabel={Physicians per 1,000 people (log scale)},
+    legend pos=south west]
+  \addplot[dotsBase, only if={sids}{0}] table[x=remote_kkm,y=doctors] {\datadir/plot_countries.csv};
+  \addlegendentry{Other economies}
+  \addplot[dotsSIDS, only if={sids}{1}] table[x=remote_kkm,y=doctors] {\datadir/plot_countries.csv};
+  \addlegendentry{Small island states}
+  \addplot[labelled=lab_doc] table[x=remote_kkm,y=doctors] {\datadir/plot_countries.csv};
+\end{axis}
+\end{tikzpicture}
+\caption{\takeaway{The further from the centre, the thinner the medical
+  workforce.} Median physicians per 1,000: \docSIDSMedian{} in small island
+  states, \docPacificMedian{} in the Pacific, \docHICMedian{} in high-income
+  economies. Holding income constant, a tenfold rise in remoteness is associated with
+  \docRemoteCoef{} fewer doctors per 1,000 (s.e.\ \docRemoteSE). Latest year 2013--23.
+  \source{World Bank WDI (WHO data); CEPII; author's remoteness index.}}
+\label{fig:doctors}
+\end{figure}

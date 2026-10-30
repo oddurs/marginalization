@@ -5,6 +5,9 @@
 \usetikzlibrary{arrows.meta,positioning,calc,decorations.markings,shapes.geometric,shadows}
 \pgfplotsset{table/col sep=comma}
 
+% Small text labels attached to data points.
+\tikzset{pointlabel/.style={font=\sffamily\tiny,color=ink,inner sep=1pt}}
+
 % Data directory (relative to paper/).
 \newcommand{\datadir}{../data/processed}
 
@@ -44,6 +47,24 @@
     mark options={fill=teal,draw=white,line width=0.3pt}},
   dotsEscape/.style={only marks,mark=diamond*,mark size=2.6pt,
     mark options={fill=sand,draw=ink,line width=0.4pt}},
-  pointlabel/.style={font=\sffamily\tiny,color=ink,inner sep=1pt},
   fitline/.style={ink,line width=0.8pt,dash pattern=on 3pt off 2pt,opacity=0.7},
+}
+
+% Missing values in the processed CSVs are blank cells: read them as nan and
+% drop those points rather than failing.
+\usepackage{pgfplotstable}
+\pgfplotsset{table/empty cells with={nan}}
+\pgfplotsset{
+  every axis/.append style={unbounded coords=discard, filter discard warning=false},
+  % keep only rows where column #1 equals #2 (e.g. only if={sids}{1})
+  only if/.style 2 args={
+    x filter/.append code={%
+      \edef\tempa{\thisrow{#1}}\edef\tempb{#2}%
+      \ifx\tempa\tempb\else\def\pgfmathresult{nan}\fi}},
+  % text labels drawn from a CSV column; empty cells give no label
+  labelled/.style={
+    only marks, mark=none,
+    nodes near coords, point meta=explicit symbolic,
+    every node near coord/.append style={pointlabel,anchor=west,xshift=1.5pt},
+    table/meta=#1},
 }

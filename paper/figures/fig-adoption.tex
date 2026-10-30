@@ -1,0 +1,32 @@
+\begin{figure}[t]
+\centering
+\begin{tikzpicture}
+\begin{axis}[edge, height=0.58\linewidth,
+    xmin=0, xmax=72, xlabel={Median adoption lag behind the first five adopters, years},
+    ymode=log, ymin=4, ymax=60, ytick={5,10,20,50}, yticklabels={5$\times$,10$\times$,20$\times$,50$\times$},
+    ylabel={Intensity gap, richest quarter vs poorest half},
+    legend pos=north east]
+  \addplot[only marks, mark=*, mark size=2.4pt, mark options={fill=haze,draw=slate}, only if={era}{industrial}]
+    table[x=lag,y=gap_ratio] {\datadir/adoption.csv};
+  \addlegendentry{Industrial era (frontier before 1915)}
+  \addplot[only marks, mark=square*, mark size=2.2pt, mark options={fill=teal,draw=white}, only if={era}{mid}]
+    table[x=lag,y=gap_ratio] {\datadir/adoption.csv};
+  \addlegendentry{Mid-century (1915--1960)}
+  \addplot[only marks, mark=diamond*, mark size=3pt, mark options={fill=ember,draw=white}, only if={era}{digital}]
+    table[x=lag,y=gap_ratio] {\datadir/adoption.csv};
+  \addlegendentry{Digital (after 1975)}
+  \addplot[labelled=label] table[x=lag,y=gap_ratio] {\datadir/adoption.csv};
+\end{axis}
+\end{tikzpicture}
+\caption{\takeaway{Technologies arrive faster but are used less
+  equally.} For \nTechs{} technologies, the typical country adopted
+  industrial-era inventions decades after the frontier, but digital ones within
+  about a decade. Yet in 2000 the richest quarter of countries used computers and
+  mobile phones \gapComputer{} and \gapCell{} times as intensively per person
+  as the poorest half, against \gapOldMedian{} times for the median
+  pre-1950 technology. Digital technologies were young in 2000, which
+  inflates their gaps; see text.
+  \source{CHAT \parencite{comin2009chat}; author's calculations following
+  \textcite{comin2010,comin2018}.}}
+\label{fig:adoption}
+\end{figure}

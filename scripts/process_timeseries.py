@@ -99,11 +99,14 @@ def main() -> None:
     r = c.dropna(subset=["remittances_gdp"]).nlargest(20, "remittances_gdp")
     r = r[["name", "remittances_gdp", "sids", "lldc", "pacific"]].copy()
     r["short"] = r.name.str.replace(r",.*$", "", regex=True).str.replace(
-        "Kyrgyz Republic", "Kyrgyzstan").str.replace("West Bank and Gaza", "West Bank & Gaza")
+        "Kyrgyz Republic", "Kyrgyzstan")
     r["group"] = r.apply(lambda x: "sids" if x.sids else ("lldc" if x.lldc else "other"), axis=1)
     r = r.iloc[::-1]  # ascending for a horizontal bar chart drawn bottom-up
     r["pos"] = range(len(r))
-    r.round(2).to_csv(PROCESSED / "remittances_top.csv")
+    r["other"] = ((r.sids == 0) & (r.lldc == 0)).astype(int)
+    assert not r.short.str.contains(",").any()
+    r[["pos", "short", "remittances_gdp", "sids", "lldc", "pacific", "other"]].round(2).to_csv(
+        PROCESSED / "remittances_top.csv", index_label="iso3")
 
     log(f"LSCI {first}-{last}, hubs={sorted(hubs)}")
 

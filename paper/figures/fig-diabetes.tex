@@ -1,0 +1,25 @@
+\begin{figure}[t]
+\centering
+\begin{tikzpicture}
+\begin{axis}[edge, height=0.52\linewidth,
+    xmin=1990, xmax=2022, xtick={1990,2000,2010,2022},
+    x tick label style={/pgf/number format/1000 sep={}},
+    ymin=0, ymax=36, ylabel={Adults with diabetes, \% (age-standardised)},
+    legend style={at={(0.02,0.98)},anchor=north west}]
+  \addplot[lineEmber] table[x=year,y=pacific] {\datadir/diabetes_groups.csv};
+  \addlegendentry{Pacific island states (median)}
+  \addplot[lineTeal] table[x=year,y=sids] {\datadir/diabetes_groups.csv};
+  \addlegendentry{All small island states (median)}
+  \addplot[lineSlate] table[x=year,y=all] {\datadir/diabetes_groups.csv};
+  \addlegendentry{All countries (median)}
+\end{axis}
+\end{tikzpicture}
+\caption{\takeaway{Island diabetes rates were high and kept rising.}
+  The median Pacific state went from \diabPacificNinety\% to \diabPacificNow\%
+  between 1990 and 2022; the median country from \diabAllNinety\% to
+  \diabAllNow\%. The rest of the world is catching up, so the relative gap
+  narrowed (from \diabPacificRatioNinety{} to \diabPacificRatioNow{} times) even
+  as the absolute gap held. Mean of male and female estimates, adults 18+.
+  \source{NCD-RisC \parencite{ncdrisc2024}; UN M49.}}
+\label{fig:diabetes}
+\end{figure}

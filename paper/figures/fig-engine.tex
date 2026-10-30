@@ -1,0 +1,35 @@
+% The "compounding engine": four recurring taxes that feed one another.
+\begin{figure}[t]
+\centering
+\begin{tikzpicture}[
+    node distance=1.2cm and 1.6cm,
+    tax/.style={rectangle, rounded corners=3pt, draw=teal, line width=0.9pt,
+      fill=mist, align=center, font=\sffamily\small, text width=3.3cm,
+      minimum height=1.25cm, inner sep=5pt},
+    hub/.style={circle, fill=ember, text=white, align=center,
+      font=\sffamily\bfseries\footnotesize, minimum size=2.35cm, inner sep=1pt},
+    loop/.style={-{Stealth[length=3mm]}, line width=1.2pt, teal, bend left=18},
+    lab/.style={font=\sffamily\scriptsize\itshape, text=slate, align=center, fill=white,
+      inner sep=1.5pt},
+  ]
+  \node[hub] (core) {Small, far\\ \& thinly\\ connected};
+  \node[tax, above=1.05cm of core] (trade) {\textbf{Trade tax}\\ fewer ships, higher freight, thinner markets};
+  \node[tax, right=1.25cm of core] (tech) {\textbf{Connectivity tax}\\ one cable, costly bandwidth, slow repair};
+  \node[tax, below=1.05cm of core] (people) {\textbf{Talent tax}\\ skilled emigration, thin specialist cover};
+  \node[tax, left=1.25cm of core] (inst) {\textbf{Institutional tax}\\ small bureaucracies, weak bargaining power};
+
+  \draw[loop] (trade.east) to node[lab, above right=-2pt] {costlier inputs,\\ weaker returns to\\ digital investment} (tech.north);
+  \draw[loop] (tech.south) to node[lab, below right=-2pt] {remote work pulls\\ talent toward\\ the centre} (people.east);
+  \draw[loop] (people.west) to node[lab, below left=-2pt] {fewer specialists\\ to run the state} (inst.south);
+  \draw[loop] (inst.north) to node[lab, above left=-2pt] {weaker leverage in\\ trade and finance\\ negotiations} (trade.west);
+
+  \foreach \n in {trade,tech,people,inst}
+    \draw[-{Stealth[length=2mm]}, ember, line width=0.7pt, dashed] (core) -- (\n);
+\end{tikzpicture}
+\caption{\takeaway{The taxes compound.} Each recurring cost of remoteness
+  raises the others: the loop, not any single link, is what turns a
+  geographic fact into a structural gap. Dashed arrows: smallness and distance
+  feed every channel directly.
+  \source{Author's schematic, drawing on \textcite{krugman1991,limao2001,briguglio1995}.}}
+\label{fig:engine}
+\end{figure}

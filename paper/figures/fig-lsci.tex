@@ -1,0 +1,30 @@
+\begin{figure}[t]
+\centering
+\begin{tikzpicture}
+\begin{axis}[edge, height=0.55\linewidth,
+    ymode=log, ymin=10, ymax=800,
+    ytick={10,20,50,100,200,500}, yticklabels={10,20,50,100,200,500},
+    xmin=2006, xmax=2025, xtick={2006,2010,2015,2020,2025},
+    x tick label style={/pgf/number format/1000 sep={}},
+    ylabel={Liner Shipping Connectivity Index (log scale)},
+    legend pos=north east, legend columns=1]
+  \addplot[bandTeal, forget plot, name path=hi] table[x=year,y=sids_p75] {\datadir/lsci_groups.csv};
+  \addplot[bandTeal, forget plot, name path=lo] table[x=year,y=sids_p25] {\datadir/lsci_groups.csv};
+  \addplot[teal, fill opacity=0.12, fill=teal, draw=none, forget plot] fill between[of=hi and lo];
+  \addplot[lineEmber] table[x=year,y=hubs] {\datadir/lsci_groups.csv};
+  \addlegendentry{2006's ten best-connected hubs (median)}
+  \addplot[lineSlate] table[x=year,y=all] {\datadir/lsci_groups.csv};
+  \addlegendentry{All countries (median)}
+  \addplot[lineTeal] table[x=year,y=sids] {\datadir/lsci_groups.csv};
+  \addlegendentry{Small island states (median, band = middle half)}
+\end{axis}
+\end{tikzpicture}
+\caption{\takeaway{Shipping connectivity at the edge has flat-lined.}
+  The median small island state scored \sidsMedianLSCIfirst{} in
+  \lsciFirstYear{} and \sidsMedianLSCI{} in \lsciLastYear{}, while the median
+  country rose by \allLSCIGrowthPct\%. The old hubs lost ground to new ones, so the
+  hub-to-island ratio narrowed from \hubSidsRatioFirst{} to \hubSidsRatio{} times.
+  Annual averages of quarterly data; index average across countries in Q1 2023 = 100.
+  \source{UNCTAD Liner Shipping Connectivity Index; UN M49 SIDS list.}}
+\label{fig:lsci}
+\end{figure}

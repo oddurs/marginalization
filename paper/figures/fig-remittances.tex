@@ -1,0 +1,29 @@
+\begin{figure}[t]
+\centering
+\begin{tikzpicture}
+\begin{axis}[edge, height=0.62\linewidth, width=0.86\linewidth,
+    xbar, bar width=6pt, bar shift=0pt, xmin=0, xmax=45,
+    xlabel={Personal remittances received, \% of GDP (\windowStart--\windowEnd{} average)},
+    ytick={0,...,19}, yticklabels from table={\datadir/remittances_top.csv}{short},
+    y tick label style={font=\sffamily\scriptsize,color=ink},
+    ymin=-0.7, ymax=19.7, enlarge y limits=false,
+    grid=none, xmajorgrids=true, axis lines*=left, y axis line style={draw=none},
+    ytick style={draw=none},
+    nodes near coords, nodes near coords style={font=\sffamily\tiny,color=slate},
+    every node near coord/.append style={/pgf/number format/.cd,fixed,precision=0},
+    legend style={at={(0.98,0.04)},anchor=south east}]
+  \addplot[fill=ember, draw=none, only if={sids}{1}] table[x=remittances_gdp,y=pos] {\datadir/remittances_top.csv};
+  \addlegendentry{Small island state}
+  \addplot[fill=teal, draw=none, only if={lldc}{1}] table[x=remittances_gdp,y=pos] {\datadir/remittances_top.csv};
+  \addlegendentry{Landlocked developing}
+  \addplot[fill=haze, draw=none, only if={other}{1}] table[x=remittances_gdp,y=pos] {\datadir/remittances_top.csv};
+  \addlegendentry{Other}
+\end{axis}
+\end{tikzpicture}
+\caption{\takeaway{The diaspora is part of the economy.}
+  The \remitTopN{} economies most dependent on remittances. \remitTopName{}
+  tops the world at \remitTopValue\% of GDP; \nRemitTopSIDS{} of the
+  \remitTopN{} are small island states and \nRemitTopLLDC{} are landlocked.
+  \source{World Bank WDI.}}
+\label{fig:remittances}
+\end{figure}

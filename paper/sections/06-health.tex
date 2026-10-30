@@ -1,1 +1,46 @@
-% 06-health
+\section{Health: Care at a Distance}
+\label{sec:health}
+
+Health care is where the recurring tax becomes personal. A small, remote
+health system pays it in four currencies: \emph{access} (specialist care,
+advanced diagnostics and complex surgery often mean an overseas referral);
+\emph{supply} (medicines, vaccines and equipment arrive in small, expensive,
+infrequent consignments); \emph{diet} (imported, processed food displaces
+local produce); and \emph{workforce} (doctors and nurses are scarce and
+mobile).
+
+\paragraph{Workforce.} \Cref{fig:doctors} plots physicians per 1,000 people
+against remoteness. The median small island state has \docSIDSMedian{}
+doctors per 1,000 and the median Pacific state \docPacificMedian, against
+\docHICMedian{} in high-income economies. Remoteness and medical density are
+correlated (\corrDocRemote), and the association survives a control for
+income: comparing countries with similar income per head, a tenfold increase
+in remoteness goes with \docRemoteCoef{} fewer physicians per 1,000 (standard
+error \docRemoteSE). In a population of a hundred thousand, the absence of a
+single specialist can mean an entire field of medicine is practised only by
+referral abroad.
+
+\input{figures/fig-doctors}
+
+\paragraph{Diet and disease.} The Pacific has some of the world's highest
+rates of diabetes. In NCD-RisC's estimates \parencite{ncdrisc2024}, the
+highest age-standardised prevalence in 2022 was in \diabTopName{}
+(\diabTopValue\%), and \diabTopTenPacific{} of the ten highest-prevalence
+countries are Pacific island states (\cref{fig:diabetes}). Imported, cheap,
+energy-dense foods---refined flour, sugar, fatty meat cuts---have displaced
+traditional diets, and Pacific governments have experimented with trade and
+tax measures to push back \parencite{snowdon2013}.
+
+\input{figures/fig-diabetes}
+
+Two cautions apply. First, diet change has many causes: urbanisation,
+incomes, physical activity, genetics, marketing and culture all play a part,
+and the data here cannot apportion blame to remoteness or trade. The claim
+is only that remote, import-dependent food systems make healthy diets
+\emph{more expensive} and treatment harder to deliver---a tax on the cure as
+well as a contributor to the disease. Second, the relative gap is narrowing,
+for an unhappy reason: the rest of the world is catching up. The Pacific
+median was \diabPacificRatioNinety{} times the global median in 1990 and
+\diabPacificRatioNow{} times in 2022. What remote systems lack is not
+awareness of the problem but the scale to manage it: dialysis units, retinal
+screening, endocrinologists and reliable insulin supply chains.
