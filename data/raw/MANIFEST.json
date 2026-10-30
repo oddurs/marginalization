@@ -1,0 +1,76 @@
+{
+  "cables/all.json": {
+    "url": "https://www.submarinecablemap.com/api/v3/cable/all.json",
+    "sha256": "0935913eb42b6b2feacbb2c021389c3df7e292f27ffff954f82787eafe6da115",
+    "bytes": 41162,
+    "accessed": "2026-10-30"
+  },
+  "cables/cables.json": {
+    "url": "https://www.submarinecablemap.com/api/v3/cable/<id>.json",
+    "sha256": "eb7acb82565eb00218fda35694210b6d947a83966db4357db6402a0c8028596a",
+    "bytes": 536657,
+    "accessed": "2026-10-30",
+    "note": "713 cable documents bundled"
+  },
+  "cepii/dist_cepii.zip": {
+    "url": "https://www.cepii.fr/distance/dist_cepii.zip",
+    "sha256": "1854825bab1abe7197f6e47295a7ced5f72c83bc95076768f733c4969ed86780",
+    "bytes": 2102114,
+    "accessed": "2026-10-30"
+  },
+  "chat/FinalCHAT_72909.csv": {
+    "url": "https://data.nber.org/data-appendix/w15319/FinalCHAT_72909.csv",
+    "sha256": "139844aaee82ce67dc54bb3038d7523a8a454909cf8eed7ecc783691348b0d75",
+    "bytes": 6365505,
+    "accessed": "2026-10-30"
+  },
+  "iab/iabbd_8010_v1_emigration.xls": {
+    "url": "https://doku.iab.de/daten/brain-drain/iabbd_8010_v1_emigration.xls",
+    "sha256": "ee3bd289e75e0b855ce031da35fed4565f12dd0a259ce0d352f620efeadb7c05",
+    "bytes": 355328,
+    "accessed": "2026-10-30"
+  },
+  "m49/m49_overview.html": {
+    "url": "https://unstats.un.org/unsd/methodology/m49/overview/",
+    "sha256": "b9048114f6e7f2abda83bf03d4263c9d7cd1bd7230e3d0461025ee7839a7a1fb",
+    "bytes": 1721575,
+    "accessed": "2026-10-30"
+  },
+  "naturalearth/ne_50m_admin_0_countries.zip": {
+    "url": "https://naciscdn.org/naturalearth/50m/cultural/ne_50m_admin_0_countries.zip",
+    "sha256": "5fed433373581fa648920435f937d95f2d3c0200e067409c6478dcdf1b853139",
+    "bytes": 799734,
+    "accessed": "2026-10-30"
+  },
+  "ncdrisc/NCD_RisC_Lancet_2024_Diabetes_age_standardised_countries.csv": {
+    "url": "https://ncdrisc.org/downloads/dm-2024/NCD_RisC_Lancet_2024_Diabetes_age_standardised_countries.csv",
+    "sha256": "08b48df3cc1fe2c74847cc329790909bbfbdeb0756e228ca3df6147950dc8e25",
+    "bytes": 2099720,
+    "accessed": "2026-10-30"
+  },
+  "ncdrisc/NCD_RisC_Lancet_2024_Diabetes_age_standardised_world.csv": {
+    "url": "https://ncdrisc.org/downloads/dm-2024/NCD_RisC_Lancet_2024_Diabetes_age_standardised_world.csv",
+    "sha256": "6adcb3e117c962b560439ed610b04442d5856f5ca7fb868d96157f325c9da3d6",
+    "bytes": 10595,
+    "accessed": "2026-10-30"
+  },
+  "unctad/US_LSCI.7z": {
+    "url": "https://unctadstat-api.unctad.org/bulkdownload/US.LSCI/US_LSCI",
+    "sha256": "435a64bdef78cdb89881bceac6c672bf49e97bf0305fa0f638a4c89614d5b2a3",
+    "bytes": 205865,
+    "accessed": "2026-10-30"
+  },
+  "wdi/economies.csv": {
+    "url": "https://api.worldbank.org/v2/country (via wbgapi)",
+    "sha256": "67f3036d938c96ff01bafc7d336e6e946d7cc5a27b80601654194c1afe249326",
+    "bytes": 9086,
+    "accessed": "2026-10-30"
+  },
+  "wdi/wdi_long.csv": {
+    "url": "https://api.worldbank.org/v2/ (via wbgapi)",
+    "sha256": "d629ee257763261e4176d38b20e9190af74468af90da060877c7ed39e85d170c",
+    "bytes": 3887087,
+    "accessed": "2026-10-30",
+    "note": "indicators: SP.POP.TOTL, NY.GDP.MKTP.CD, NY.GDP.PCAP.CD, NY.GDP.PCAP.PP.KD, BX.TRF.PWKR.DT.GD.ZS, SH.MED.PHYS.ZS, SH.STA.DIAB.ZS, IT.NET.USER.ZS, IT.NET.BBND.P2, IT.CEL.SETS.P2, EN.GHG.CO2.PC.CE.AR5, ST.INT.RCPT.XP.ZS, NE.TRD.GNFS.ZS, EN.POP.EL5M.ZS, VC.IDP.NWDS, GOV_WGI_GE.EST"
+  }
+}

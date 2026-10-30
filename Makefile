@@ -17,7 +17,7 @@ export SOURCE_DATE_EPOCH ?= 1767225600
 export FORCE_SOURCE_DATE := 1
 export MPLBACKEND := Agg
 
-FETCHERS := wdi cepii unctad cables ncdrisc iab worldrisk chat m49 naturalearth
+FETCHERS := m49 wdi cepii unctad cables ncdrisc iab chat naturalearth
 RAW_STAMPS := $(foreach f,$(FETCHERS),data/raw/.$(f).stamp)
 
 PROCESSED := data/processed/countries.csv

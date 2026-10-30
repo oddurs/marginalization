@@ -1,0 +1,21 @@
+iso3,name,remittances_gdp,sids,lldc,pacific,short,group,pos
+MHL,Marshall Islands,16.64,1,0,1,Marshall Islands,sids,0
+GTM,Guatemala,16.9,0,0,0,Guatemala,other,1
+XKX,Kosovo,17.42,0,0,0,Kosovo,other,2
+NIC,Nicaragua,17.96,0,0,0,Nicaragua,other,3
+LBR,Liberia,18.35,0,0,0,Liberia,other,4
+JAM,Jamaica,19.03,1,0,0,Jamaica,sids,5
+PSE,West Bank and Gaza,19.41,0,0,0,West Bank & Gaza,other,6
+COM,Comoros,19.53,1,0,0,Comoros,sids,7
+HTI,Haiti,19.54,1,0,0,Haiti,sids,8
+LSO,Lesotho,21.77,0,1,0,Lesotho,lldc,9
+GMB,"Gambia, The",21.94,0,0,0,Gambia,other,10
+BMU,Bermuda,22.53,0,0,0,Bermuda,other,11
+NPL,Nepal,23.94,0,1,0,Nepal,lldc,12
+SLV,El Salvador,24.08,0,0,0,El Salvador,other,13
+HND,Honduras,24.87,0,0,0,Honduras,other,14
+WSM,Samoa,25.24,1,0,1,Samoa,sids,15
+LBN,Lebanon,25.31,0,0,0,Lebanon,other,16
+KGZ,Kyrgyz Republic,27.79,0,1,0,Kyrgyzstan,lldc,17
+TJK,Tajikistan,35.06,0,1,0,Tajikistan,lldc,18
+TON,Tonga,39.47,1,0,1,Tonga,sids,19
